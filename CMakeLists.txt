@@ -19,6 +19,16 @@
 cmake_minimum_required(VERSION 3.0)
 set(CMAKE_CXX_STANDARD 17)
 
+
+# platform detection
+if(WIN32)
+    add_compile_definitions(_WIN32)
+elseif(APPLE)
+    add_compile_definitions(_APPLE)
+elseif(UNIX)
+    add_compile_definitions(_LINUX)
+endif()
+
 include(cmake/generate.cmake)
 include(cmake/searchLib.cmake)
 
